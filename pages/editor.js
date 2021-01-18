@@ -10,7 +10,7 @@ class MyEditor extends Component {
     this.onChange = (editorState) => this.setState({ editorState });
 
     this.handleKeyCommand = (command) => this._handleKeyCommand(command);
-    this.onTab = (e) => this._onTab(e);
+
     this.toggleBlockType = (type) => this._toggleBlockType(type);
     this.toggleInlineStyle = (style) => this._toggleInlineStyle(style);
   }
@@ -23,11 +23,6 @@ class MyEditor extends Component {
       return true;
     }
     return false;
-  }
-
-  _onTab(e) {
-    const maxDepth = 4;
-    this.onChange(RichUtils.onTab(e, this.state.editorState, maxDepth));
   }
 
   _toggleBlockType(blockType) {
@@ -70,7 +65,6 @@ class MyEditor extends Component {
             editorState={editorState}
             handleKeyCommand={this.handleKeyCommand}
             onChange={this.onChange}
-            onTab={this.onTab}
             placeholder="Tell a story..."
             ref="editor"
             spellCheck={true}

@@ -1,18 +1,21 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import MyEditor from "./editor";
+import { Editor, EditorState, RichUtils } from "draft-js";
 
 export default function Home() {
+  var typing = false;
   return (
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
         <meta charset="utf-8" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.png" />
       </Head>
 
       <main className={styles.main}>
         <h2>Hey world</h2>
+        <p>{typing ? "..." : EditorState.getCurrentContent}</p>
         <MyEditor />
       </main>
 
@@ -22,8 +25,8 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          Developed by Butterfly Design{" "}
+          <img src="/logo.png" alt="Butterfly Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
